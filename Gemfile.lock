@@ -26,7 +26,7 @@ GEM
     tilt (2.0.10)
 
 PLATFORMS
-  x86_64-darwin-19
+  ruby
 
 DEPENDENCIES
   openssl
