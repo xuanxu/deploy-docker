@@ -8,12 +8,16 @@ class TestApp < Sinatra::Base
     status.success? ? result : "Docker failed to run: #{stderr}"
   end
 
+  get '/docker' do
+    result, stderr, status = Open3.capture3("docker --version")
+    status.success? ? result : "Docker version unknown: #{stderr}"
+  end
+
   get '/status' do
     "Up and running!"
   end
 
-  get '/docker' do
-    result, stderr, status = Open3.capture3("docker --version")
-    status.success? ? result : "Docker version unknown: #{stderr}"
+  get '/' do
+    "Welcome"
   end
 end
